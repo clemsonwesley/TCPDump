@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Store Systems IP
+#/sbin/ifconfig eht0* | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
+
+sysIP="$(hostname -I | awk '{print $1}')"
+
+echo "$sysIP"
+
+#Network Traffic Interface
+eth="$(ifconfig | head -n 1 | awk '{print $1}')"
+echo "$eth"
+
+
