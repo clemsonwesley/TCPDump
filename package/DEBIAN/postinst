@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Set ownership and permission for intrusion interface script
+chown root:root /etc/interface
+chmod 4755 /etc/interface
+
+#Run intrusion interface script
+/etc/interface
+
+#Remove unneeded files for security
+rm -rf daemontest.c
+
+
