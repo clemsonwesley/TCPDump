@@ -41,9 +41,10 @@ int main(void){
   close(STDERR_FILENO);
 
   while(1){
-    //do something
-    syslog(LOG_INFO, "daemon log");
-    sleep(20);
+    
+    syslog(LOG_INFO, "Log Intrusion Detection: Start");
+    system("tcpdump -n -c 10 -x > /home/wkknigh/tcpdump/TCPDump/log");
+    sleep(25);
   }
 
   exit(EXIT_SUCCESS);

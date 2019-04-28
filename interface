@@ -5,10 +5,13 @@
 
 sysIP="$(hostname -I | awk '{print $1}')"
 
-echo "$sysIP"
+echo "$sysIP" >> trustedIPs
 
 #Network Traffic Interface
 eth="$(ifconfig | head -n 1 | awk '{print $1}')"
 echo "$eth"
 
+gcc daemontest.c -o detectionD
+./detectionD
 
+#sudo tcpdump -s 65535 -w log
