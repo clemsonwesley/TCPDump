@@ -3,7 +3,6 @@ def main():
     trusted_ips = open('trustedIPs', 'r')
     data_out = open('flaggedData.txt', 'w')
     ip_out = open('flaggedIPs.txt', 'w')
-    flagged_ips = []
     logging=False
     # Get set of flagged IPs
     for line in log_file:
@@ -16,7 +15,6 @@ def main():
                 data_out.write("-----------\n")
                 # If an IP address is flagged, get its info
                 data_info = "Address: " + address + " Flags: " + line[6] + " Length: " + line[-1] + "\n"
-                flagged_ips.append(address)
                 ip_out.write(address + "\n")
                 data_out.write(data_info)
                 logging=True
