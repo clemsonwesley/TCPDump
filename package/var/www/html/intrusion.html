@@ -1,0 +1,69 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<script>
+
+/*var fileDisplay = document.getElementById('infoDisplay');
+function readLogFile(file){
+
+   var rawFile = new XMLHttpRequest();
+   rawFile.open("GET", file, false);
+   rawFile.onreadystatechange = function()
+   {
+      if(rawFile.status === 200 || rawFile.status == 0){
+         var allText = rawFIle.responseText;
+         fileDisplay.innerText = allText;
+      }
+    }
+    rawFile.send(null);
+}
+
+readLogFile("file:///home/wkknigh/tcpdump/TCPDump/log.txt");*/
+
+
+</script>
+
+<title>Intrusion Detection</title>
+<style>
+  * {
+   box-sizing: border-box; 
+  }
+  body {
+    margin: 5;
+  }
+  #main {
+    display: flex;
+    min-height: calc(100vh - 40vh);
+  }
+  #main > article {
+    flex: 1;
+  }
+  #main > nav{
+    flex: 0 0 20vw;
+    background: beige;
+  }
+  #main > nav {
+    order: -1;
+  }
+  header, footer, article, nav{
+    padding: 2em;
+  }
+  header{
+    font-size: 24pt;
+    font-weight: normal;
+    background: grey;
+    height: 5vh;
+  }
+</style>
+<body>
+  <header>Intrusion Detection Logs:</header>
+  <div id="main">
+    <div>
+    <nav>Intruding IP:</nav>
+    <object height="100%" width="100%" type="text/plain" data="ipTable" border="1" style="border-color:grey;"></object>
+    </div>
+    <div>
+    <article>Data Traffic:</article>
+    <object height="100%" width="100%" type="text/plain" data="dataTable" border="1" style="border-color:grey;"></object>
+    </div> 
+  </div>
+</body>

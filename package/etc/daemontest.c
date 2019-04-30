@@ -44,7 +44,7 @@ int main(void){
     
     syslog(LOG_INFO, "Log Intrusion Detection: Start");
     system("tcpdump -n -c 10 -x > /etc/log");
-    system("python3 flagData.py");
+    system("python3 /etc/flagData.py");
     sleep(15);
   }
 
