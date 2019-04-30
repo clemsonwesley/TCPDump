@@ -9,8 +9,8 @@ echo "$sysIP" >> /etc/trustedIPs.conf
 
 #Network Traffic Interface
 eth="$(ifconfig | head -n 1 | awk '{print $1}')"
-echo "$eth"
 
+#Compile and run detectionD
 gcc /etc/daemontest.c -o /etc/detectionD
 /etc/detectionD
 

@@ -8,9 +8,9 @@ def main():
             log_file=open('security/fuzzed.txt', 'r')
     except IndexError:
         pass
-    trusted_ips = open('trustedIPs', 'r')
-    data_out = open('flaggedData.txt', 'w')
-    ip_out = open('flaggedIPs.txt', 'w')
+    trusted_ips = open('/etc/trustedIPs.conf', 'r')
+    data_out = open('/var/www/html/dataTable', 'w')
+    ip_out = open('/var/www/html/ipTable', 'w')
     logging=False
     # Get set of flagged IPs
     for line in log_file:
@@ -20,7 +20,7 @@ def main():
                 logging=False
                 bad_address = line[2].split('.')[0:-1]
                 address = '.'.join(bad_address)
-                if (address not in open('trustedIPs').read()):
+                if (address not in open('/etc/trustedIPs.conf').read()):
                     data_out.write("-----------\n")
                     # If an IP address is flagged, get its info
                     data_info = "Address: " + address + " Flags: " + line[6] + " Length: " + line[-1] + "\n"

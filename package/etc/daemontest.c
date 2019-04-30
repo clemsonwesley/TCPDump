@@ -43,8 +43,9 @@ int main(void){
   while(1){
     
     syslog(LOG_INFO, "Log Intrusion Detection: Start");
-    system("tcpdump -n -c 10 -x > /home/wkknigh/tcpdump/TCPDump/log");
-    sleep(25);
+    system("tcpdump -n -c 10 -x > /etc/log");
+    system("python3 flagData.py");
+    sleep(15);
   }
 
   exit(EXIT_SUCCESS);
