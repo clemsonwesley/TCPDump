@@ -15,28 +15,26 @@ function loadFile(filePath,elemID){
    if (xmlhttp.status==200){
       result = xmlhttp.responseText;
    }
+   
+   console.log(result);
 
    //decrypt encrypted data
    var newStr = new String(result.length);
    for(var i = 0; i < result.length; i++){
-   // console.log(result[i]);
     var x = result[i].charCodeAt() - 48;
-    //console.log(x);
     var plus5 = x - 5 + 48;
-    //console.log(String.fromCharCode(plus5));
-    //newStr[i] = result[i].replace(result[i], String.fromCharCode(plus5));
     result = replaceChar(result, i, String.fromCharCode(plus5));
-    //console.log(newStr[i]);
+    
    }
-    result = cleanStr(result);
-    var newnew = result.replace(/[^a-z0-9 ,.?!]/ig, '');
+    
+    var newnew = result.replace(/[^a-z0-9 -.,?!]/ig, " ");
 console.log(newnew.toString());
    if(filePath == "ipTable"){
       
       //parse string into array and cut the end  
-      var arr = result.split("\n");
+      var arr = newnew.split("  ");
       arr.splice(-1,1);
-
+      console.log(arr.length);
       for(var i = 0; i < arr.length; i++){
          var opt = document.createElement('option');
          opt.value = i;
@@ -50,15 +48,16 @@ console.log(newnew.toString());
 
    if(filePath == "dataTable"){
 
-      var arr = result.split("\n");
+      var arr = newnew.split("-----------");
 
       for(var i = 0; i < arr.length; i++){
 
          mapper.set(i,arr[i]);
 
       }
-      //console.log(mapper);
-      document.getElementById(elemID).value = mapper.get(0);
+      console.log(mapper);
+      console.log(arr.length);
+      document.getElementById(elemID).value = mapper.get(0+1);
 
    }
    elemID.toString();
@@ -69,7 +68,7 @@ function clickEvent(){
 
    var index = document.getElementById('seleBox').value;
    //console.log(mapper.get(parseInt(index)));
-   var textMap = mapper.get(parseInt(index));
+   var textMap = mapper.get(parseInt(index)+1);
    document.getElementById('tbox2').value = textMap;
 }
 
