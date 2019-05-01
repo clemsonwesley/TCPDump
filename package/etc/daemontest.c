@@ -70,9 +70,9 @@ void encrypt(char *IPfile){
   int len;
   int i;
   int x;
-  char str[25];
+  char str[100];
 
-  while(fgets(str, 25, IP)){
+  while(fgets(str, 100, IP)){
 
     len = strlen(str);
 
@@ -106,7 +106,7 @@ void encrypt(char *IPfile){
   IP = fopen(IPfile, "w");
   temp = fopen("/var/www/html/temp.txt", "r");
 
-  while(fgets(str, 25, temp)){
+  while(fgets(str, 100, temp)){
 
     len = strlen(str);
 
