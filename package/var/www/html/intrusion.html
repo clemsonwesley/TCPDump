@@ -41,7 +41,8 @@ console.log(newStr.toString());*/
          opt.text = arr[i].toString();
          document.getElementById('seleBox').options.add(opt);
       }
-      console.log(arr);
+      document.getElementById(elemID).value = result;
+      //console.log(arr);
 
    }
 
@@ -54,11 +55,11 @@ console.log(newStr.toString());*/
          mapper.set(i,arr[i]);
 
       }
-      console.log(mapper);
+      //console.log(mapper);
+      document.getElementById(elemID).value = mapper.get(0);
 
    }
    elemID.toString();
-   document.getElementById(elemID).value = result;
 
 }
 
