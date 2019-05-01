@@ -17,7 +17,7 @@ function loadFile(filePath,elemID){
    }
 
    //decrypt encrypted data
-   /*var newStr = new String(result.length);
+   var newStr = new String(result.length);
    for(var i = 0; i < result.length; i++){
    // console.log(result[i]);
     var x = result[i].charCodeAt() - 48;
@@ -25,10 +25,12 @@ function loadFile(filePath,elemID){
     var plus5 = x - 5 + 48;
     //console.log(String.fromCharCode(plus5));
     //newStr[i] = result[i].replace(result[i], String.fromCharCode(plus5));
-    newStr +  String.fromCharCode(plus5);
-    console.log(newStr[i]);
+    result = replaceChar(result, i, String.fromCharCode(plus5));
+    //console.log(newStr[i]);
    }
-console.log(newStr.toString());*/
+    result = cleanStr(result);
+    var newnew = result.replace(/[^a-z0-9 ,.?!]/ig, '');
+console.log(newnew.toString());
    if(filePath == "ipTable"){
       
       //parse string into array and cut the end  
@@ -69,6 +71,27 @@ function clickEvent(){
    //console.log(mapper.get(parseInt(index)));
    var textMap = mapper.get(parseInt(index));
    document.getElementById('tbox2').value = textMap;
+}
+
+function replaceChar(str, index, chr){
+
+   if(index > str.length-1) return str;
+   return str.substr(0,index) + chr + str.substr(index+1);
+
+}
+
+function cleanStr(str){
+
+   var output = "";
+   for(var i = 0; i < str.length; i++){
+
+      if(str.charCodeAt(i) <= 127){
+         output += str.charAt(i);
+
+      }
+   }
+   return output;
+
 }
 
 </script>
