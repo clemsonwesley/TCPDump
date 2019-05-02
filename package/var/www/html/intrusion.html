@@ -117,35 +117,43 @@ function cleanStr(str){
   #main > nav {
     order: -1;
   }
-  header, footer, article, nav{
-    padding: 2em;
+  footer, article, nav{
+    padding: 3em;
+    margin-left:10px;
+    margin-right:50px;
   }
   header{
+    padding-bottom:1.5em;
+    padding-top:1em;
     font-size: 24pt;
     font-weight: normal;
-    background: grey;
+    background: lightgrey;
     height: 5vh;
   }
+
+  textarea{
+    border:2px solid;
+}i
 </style>
 <body>
-  <header>Intrusion Detection Logs:</header>
+  <header>Intrusion Detection Logs</header>
   <div id="main">
     <div>
     <nav>Intruding IP:</nav>
     <!--<object height="100%" width="100%" type="text/plain" data="yaboi" border="1" style="border-color:grey;"></object> 
     <textarea rows="12" cols="25" id="tbox1"></textarea>-->
-    <select cols="20" id="seleBox" onChange="clickEvent()"></select>
+    <select cols="30" id="seleBox" onChange="clickEvent()"></select>
     <script>loadFile("ipTable","tbox1")</script>
     </div>
     <div>
     <article>Data Traffic:</article>
    <!-- <object height="100%" width="100%" type="text/plain" data="dataTable" border="1" style="border-color:grey;"></object>-->
-   <textarea border="2" rows="25" cols="25" id="tbox2"></textarea>
+   <textarea class="bigtext" readonly border="2" rows="25" cols="25" id="tbox2"></textarea>
    <script>loadFile("dataTable","tbox2")</script>
     </div>
    <div>
    <article>Block IP:</article>
-   <textbox>If you would like to block any of the address you see on this list. Please visit /etc/untrustedIPs and add them to the list.</textbox>
+   <textbox>'If you would like to block any of the addresses you see on this list, goto your command line a type iptables -A INPUT -s "Intruders IP" -j DROP.'</textbox>
    </div> 
   </div>
 </body>
