@@ -18,7 +18,11 @@ def main():
         try:
             if (line[1].strip()=="IP"):
                 logging=False
-                bad_address = line[2].split('.')[0:-1]
+                split_address=line[2].split('.')
+                if len(split_address)==5:
+                    bad_address = line[2].split('.')[0:-1]
+                else: 
+                    bad_address=line[2].split('.')
                 address = '.'.join(bad_address)
                 if (address not in open('/etc/trustedIPs.conf').read()):
                     data_out.write("-----------\n")
